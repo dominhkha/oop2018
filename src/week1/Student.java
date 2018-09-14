@@ -48,7 +48,7 @@ public class Student {
 
     String getInfo() {
         // TODO:
-        System.out.print( "ten: "+ name+"\n"+"id: " +id+"\n"+"group: " +group+"\n"+"email: "+email);
+        System.out.print( "\nten: "+ name+"\n"+"id: " +id+"\n"+"group: " +group+"\n"+"email: "+email);
         return null; // xóa dòng này sau khi cài đặt
     }
     public void setName(String name){
