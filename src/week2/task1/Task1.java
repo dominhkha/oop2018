@@ -1,14 +1,32 @@
 package week2.task1;
 
-public class Task1 {
+import java.util.Scanner;
 
+public class Task1 {
     public static int gcd(int a, int b) {
         // TODO: Tính ước chung lớn nhất của 2 số a, b
-        return 0;
+        if(a==0||b==0) return a+b;
+        if(a>b) return gcd(a%b,b);
+        else return gcd(a,b%a);
+        
     }
 
     public static int fibonacci(int n) {
         // TODO: Tìm số fibonacci ở vị trí n
+        if(n==0) return 0;
+        if(n==1) return 1;
+        else if(n>1) return fibonacci(n-1)+fibonacci(n-2);
         return 0;
+    }
+    public static void main(String[] args){
+        int a,b;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a: ");
+        a=sc.nextInt();
+        System.out.println("Enter b: ");
+        b=sc.nextInt();
+        int c=gcd(a,b);
+        System.out.println("Result: "+c);
+        System.out.println("Fibonacci number at 5th: "+fibonacci(4)); // 0 1 1 2 3
     }
 }

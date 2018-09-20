@@ -49,7 +49,7 @@ public class Student {
     String getInfo() {
         // TODO:
         System.out.print( "\nten: "+ name+"\n"+"id: " +id+"\n"+"group: " +group+"\n"+"email: "+email);
-        return null; // xóa dòng này sau khi cài đặt
+        return null; 
     }
     public void setName(String name){
         this.name=name;

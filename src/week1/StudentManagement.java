@@ -32,7 +32,6 @@ public class StudentManagement {
                     }
                 }
                 k++;
-               // System.out.println(k);
             }
             i++;
         }
@@ -61,24 +60,29 @@ public class StudentManagement {
     public static void main(String[] args) {
         // TODO:
         // bai 6 : 
+        
         System.out.println("\nIn ra Info: ");
         Student stu=new Student("Do Minh Kha","17020827","17020827@vnu.edu.vn");
+        System.out.println("Ten cua sinh vien la : "+stu.getName());
+        System.out.println("Toan bo thong tin cua sinh vien: ");
         stu.getInfo();
         //end
         
         StudentManagement hs=new StudentManagement();
-        System.out.println("------ kiem tra same group---------- ");
-        Student stu1 = new Student("Do Minh A","17020827","17020827@vnu.edu.vn");
+        System.out.println("\n------ kiem tra same group----------\n ");
+        Student stu1 = new Student("Do Minh A","17020827","17020827@vnu.edu.vn"); // khoi tao co tham so
         Student stu2 = new Student("Do Minh B","17020827","17020827@vnu.edu.vn");
-        stu1.setGroup(null);
+       // stu1.setGroup(null);
+       stu1.setGroup("INT22041");
+       stu2.setGroup("INT22042");
         if(hs.sameGroup(stu1, stu2)) System.out.println("hai sinh vien "+stu1.getName()+" va "+stu2.getName()+"cung lop");
         else System.out.println("hai sinh vien "+stu1.getName()+" va "+stu2.getName()+" khac lop");
         
         System.out.println("\n---- Student By Group------");
-        hs.ds[0]=new Student();
+        hs.ds[0]=new Student(); // khoi tao khong co tham so
         hs.ds[1]=new Student();
         hs.ds[2]=new Student();
-        hs.ds[3]=new Student(stu);
+        hs.ds[3]=new Student(stu); // khoi tao sao chep stu
         hs.ds[0].setName("Do Minh A");
         hs.ds[0].setGroup("N1");
         hs.ds[1].setName("Do Minh B");
