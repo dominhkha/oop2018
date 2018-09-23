@@ -1,5 +1,12 @@
 package week2.task3;
 
+
+
+public class Task3 {
+
+}
+
+//TODO: khai báo 3 class tương ứng với 3 đối tượng thực tế ở dưới
 // tao doi tuong nguoi dung tai khoan ngan hang
 class bankUser {
 
@@ -27,7 +34,7 @@ class bankUser {
         this.id = id;
     }
 
-    public void setSoTienDu(float soTienDu) {
+    public void setSoTienDu(int soTienDu) {
         this.soTienDu = soTienDu;
     }
 
@@ -214,8 +221,3 @@ class Company{
         System.out.println("ten: "+name+" so nhan vien: "+number+" dai chi: "+id);
     }
 }
-public class Task3 {
-
-}
-
-//TODO: khai báo 3 class tương ứng với 3 đối tượng thực tế ở dưới
