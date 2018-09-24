@@ -1,10 +1,29 @@
 package week2.task3;
 
-
-
 public class Task3 {
-
+        public static void main(String[] args){
+            bankUser a = new bankUser();  // bankUser
+            a.setName("do minh kha");
+            a.setId("17020827");
+            a.setSoTienDu(1000);
+            a.napTien(1500);
+            a.printAcc();
+            House b=new House();        // House
+            b.changeColor("red");
+            b.setTenChuNha("do minh kha");
+            b.setSoTang(2);
+            b.print();
+            Company c= new Company();   // Company
+            c.setNumber(1000);
+            c.saThaiNhanVien(100);
+            c.tuyenNhaVien(50);
+            c.setName("uet");
+            c.setId("xuan thuy- cau giay");
+            c.print();
+        }
 }
+
+
 
 //TODO: khai báo 3 class tương ứng với 3 đối tượng thực tế ở dưới
 // tao doi tuong nguoi dung tai khoan ngan hang
@@ -62,25 +81,25 @@ class bankUser {
 
     // nap tien 
     public void napTien(int mon) {
-        this.soTienDu = mon;
+        this.soTienDu =this.soTienDu+ mon;
     }
 //
     // ham in ra thong tin tai khoan
     public void printAcc() {
-        System.out.println("ten: " + name + " id: " + id + " so tien du: " + soTienDu);
+        System.out.println("Ten: " + name + " Id: " + id + " So tien du: " + soTienDu);
     }
 
     // ham chuyen tien cho tai khoan khac
     public void chuyenTien(int mon, bankUser other) {
         if(other==null||other.name=="0000"){
-            System.out.println("\nuser who you want to tranfer money isnot exist!");
+            System.out.println("\nuser who you want to tranfer money is not exist!");
             return ;
         }
-        if (mon > soTienDu) {
+        if (mon > this.soTienDu) {
             System.out.println("\ncannot transfer money!");
             return;
         } else {
-            soTienDu = soTienDu - mon;
+            this.soTienDu = this.soTienDu - mon;
             other.soTienDu = other.soTienDu + mon;
         }
     }
@@ -150,7 +169,7 @@ class House{
         this.tenChuNha=chuNhaMoi;
     }
     public void print(){        // in ra thong tinn chu nha
-        System.out.println("\nten chu nha: "+tenChuNha+" mau son: "+color+" so tang: "+soTang);
+        System.out.println("\nTen chu nha: "+tenChuNha+" Mau son: "+color+" So tang: "+soTang);
     }
 }
 class Company{
@@ -218,6 +237,6 @@ class Company{
         }
     }
     public void print(){            // in ra thong tin cong ty
-        System.out.println("ten: "+name+" so nhan vien: "+number+" dai chi: "+id);
+        System.out.println("\nTen: "+name+" So nhan vien: "+number+" Dia chi: "+id);
     }
 }
