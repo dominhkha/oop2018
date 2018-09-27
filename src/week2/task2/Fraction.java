@@ -48,9 +48,9 @@ public class Fraction {
         int a=numberator*other.denominator + denominator*other.numberator;
         int b=denominator*(other.denominator);
         int j=Task1.gcd(a, b);
-        Fraction t=new Fraction(a/j,b/j);
+        return new Fraction(a/j,b/j);
         // TODO: Phương thức cộng hai phân số (this và other), trả về đối tượng Fraction mới
-        return t;
+        
     }
 
     public Fraction subtract(Fraction other) {
@@ -87,8 +87,8 @@ public class Fraction {
         int a=numberator*other.denominator;
         int b=denominator*other.numberator;
         int j=Task1.gcd(a, b);
-        Fraction t= new Fraction(a/j,b/j);
-        return t;
+        return new Fraction(a/j,b/j);
+        
         // TODO: Phương thức chia hai phân số (this và other), trả về đối tượng Fraction mới
     }
     public boolean equals(Fraction Obj){
