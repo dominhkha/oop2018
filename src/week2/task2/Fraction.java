@@ -10,16 +10,36 @@ public class Fraction {
     private int denominator;
     public Fraction(int numberator, int denominator) {
         if(denominator==0) {
-            System.out.println("setter fail !");
+            System.out.println("constructor fail !");
             return ;
         }
+        int t=Task1.gcd(numberator, denominator);
         int j=1;
         if(denominator<0) j=-1;
-        this.numberator=numberator*j;
-        this.denominator=denominator*j;
+        this.numberator=(numberator*j);
+        this.denominator=(denominator*j);
+        this.denominator=this.denominator/t;
+        this.numberator=this.numberator/t;
         // TODO: khởi tạo giá trị cho các thuộc tính numberator (tử số), denominator (mẫu số)
     }
 
+    public void setNumberator(int numberator) {
+        this.numberator = numberator;
+    }
+
+    public void setDenominator(int denominator) {
+        this.denominator = denominator;
+    }
+
+    public int getNumberator() {
+        return numberator;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    
     public Fraction add(Fraction other) {
         if(other.denominator==0||denominator==0) {
             System.out.println("\ncannot add");
@@ -35,15 +55,15 @@ public class Fraction {
 
     public Fraction subtract(Fraction other) {
         if(other.denominator==0||denominator==0) {
-            System.out.println("\ncannot add");
+            System.out.println("\ncannot subtract");
             return null;
         }
         int a=numberator*other.denominator - denominator*other.numberator;
         int b=denominator*(other.denominator);
         int j=Task1.gcd(a, b);
-        Fraction t=new Fraction(a/j,b/j);
+        return new Fraction(a/j,b/j);
         // TODO: Phương thức trừ hai phân số (this và other), trả về đối tượng Fraction mới
-        return t;
+        
     }
 
     public Fraction multiply(Fraction other) {
@@ -51,12 +71,12 @@ public class Fraction {
             System.out.println("\ncannot multiply");
             return null;
         }
-        int a=numberator*other.numberator;
-        int b=denominator*other.denominator;
-        int j=Task1.gcd(a, b);
-        Fraction t=new Fraction(a/j,b/j);
+        int a=this.numberator*other.numberator;
+        int b=this.denominator*other.denominator;
+        int j=Task1.gcd(a,b);
+        return new Fraction(a/j,b/j);
         // TODO: Phương thức nhân hai phân số (this và other), trả về đối tượng Fraction mới
-        return t;
+        
     }
 
     public Fraction divide(Fraction other) {
@@ -71,12 +91,11 @@ public class Fraction {
         return t;
         // TODO: Phương thức chia hai phân số (this và other), trả về đối tượng Fraction mới
     }
-    public boolean equals(Fraction other){
-        int j=Task1.gcd(numberator,denominator);
-        int k=Task1.gcd(other.numberator,other.denominator);
-        Fraction t1=new Fraction(numberator/j,denominator/j);
-        Fraction t2=new Fraction(other.numberator/k,other.denominator/k);
-        return t1.equals(t2);
+    public boolean equals(Fraction Obj){
+      Fraction t= this.divide(Obj);
+      if(t.numberator==0) return true;
+      return false;
+      // return Obj.equals(this);
     }
     public void print(){
         if(denominator==0){
@@ -92,8 +111,17 @@ public class Fraction {
     public static void main(String[] args){
         Fraction ps=new Fraction(1,2);
         Fraction ps1=new Fraction(5,2);
-        System.out.println("kjjj");
         Fraction ps2=ps.subtract(ps1);
+        Fraction ps3=ps.multiply(ps1);
+        Fraction ps4=ps.add(ps1);
+        Fraction ps5=ps.divide(ps1);
+        if(ps.equals(ps1)){
+            System.out.println(ps.getNumberator()+"/"+ps.getDenominator()+"="+ps1.getNumberator()+"/"+ps1.getDenominator());
+        }
+        else System.out.println(ps.getNumberator()+"/"+ps.getDenominator()+"!="+ps1.getNumberator()+"/"+ps1.getDenominator());
         ps2.print();
+        ps3.print();
+        ps4.print();
+        ps5.print();
     }
 }
