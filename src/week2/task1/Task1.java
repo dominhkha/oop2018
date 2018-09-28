@@ -31,6 +31,6 @@ public class Task1 {
         
         int c=gcd(a,b);
         System.out.println("Result: "+c);
-        System.out.println("Fibonacci number at 5th: "+fibonacci(4)); // 0 1 1 2 3
+        System.out.println("Fibonacci : "+fibonacci(4)); // 0 1 1 2 3
     }
 }
