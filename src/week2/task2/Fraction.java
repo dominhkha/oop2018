@@ -92,7 +92,7 @@ public class Fraction {
         // TODO: Phương thức chia hai phân số (this và other), trả về đối tượng Fraction mới
     }
     public boolean equals(Fraction Obj){
-      Fraction t= this.divide(Obj);
+      Fraction t= this.subtract(Obj);
       if(t.numberator==0) return true;
       return false;
       // return Obj.equals(this);
