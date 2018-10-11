@@ -42,8 +42,6 @@ public class Week3 {
         
     }
     public static void main(String[] args){
-        int[] a4 = new int[] {11,12,13,14,19,10,-1,-2,9,-5,-9,-33};
         
-        System.out.println(minOfArray(a4));
     }
 }
