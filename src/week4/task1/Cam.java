@@ -28,6 +28,7 @@ public class Cam extends HoaQua {
      * @param shape
      * @param color 
      */
+    
     public Cam(String origin, String ngayBan, String shape, String color){
         super(shape,color);
         this.origin=origin;
