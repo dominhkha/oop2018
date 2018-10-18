@@ -23,54 +23,57 @@ public class Layer extends JPanel implements ActionListener {
 
     private int delay = 0;
     protected Timer timer;
+    protected Timer timer1;
     private int[] dx;
     private int[] dy;
     private int[] a;
     private int[] b;
     private int[] r;
-
+    private int n;
+    private int n1;
     private Shape[] x;
-
+    public static final int MAX =30;
     public Layer() {
-
-        x = new Shape[20];
+        n=0;
+        x = new Shape[MAX];
         x[0] = new Circle(70, 1000, 500);
         x[1] = new Circle(100, 0, 0);
         x[2] = new Circle(50, 300, 500);
         x[3] = new Circle(100, 0, 1000);
         x[4] = new Circle(200, 500, 100);
         x[5] = new Circle(150, 1000, 0);
-        x[6] = new Circle(100, 200, 1000);
-        x[7] = new Circle(190, 1000, 1000);
-        x[8] = new Circle(120, 1000, 0);
-        x[9] = new Circle(120, 500, 700);
-        x[10] = new Circle(90, 600, 600);
-        x[11] = new Triangle();
-        x[12] = new Rectangle();
-        x[13] = new Square();
-        dx = new int[11];
-        dy = new int[11];
-        a = new int[11];
-        b = new int[11];
-        r = new int[11];
-        for (int i = 0; i < 11; i++) {
+        x[6] = new Circle(100, 220, 1000);
+        x[7] = new Triangle();
+        x[8] = new Rectangle();
+        x[9] = new Square();
+        n1=9;
+        dx = new int[MAX];
+        dy = new int[MAX];
+        a = new int[MAX];
+        b = new int[MAX];
+        r = new int[MAX];
+        for (int i = 0; i < MAX; i++) {
             dx[i] = 1;
             dy[i] = 1;
         }
         timer = new Timer(delay, this);
-
+       // timer1 = new Timer(delay, this);
         timer.start();
     }
 
     public void actionPerformed(ActionEvent e) {
+       
         repaint();
     }
 
     public void paintComponent(Graphics g) {
+       
         super.paintComponent(g);
         g.setColor(Color.red);
+        
         for (int i = 0; x[i]!=null; i++) {
-            if (x[i].toString().equals("Circle")) {
+           // if(i==n1) x[n1] = new Circle(100,100,100);
+            if (x[i] instanceof Circle) {
                 a[i] = x[i].getCenter().getX();
                 b[i] = x[i].getCenter().getY();
                 r[i] = x[i].getLength();
@@ -123,27 +126,59 @@ public class Layer extends JPanel implements ActionListener {
                 }
 
                 x[i].setCenter(p);
+                
+                
                 g.fillOval(x[i].getCenter().getX(), x[i].getCenter().getY(), x[i].getWidth(), x[i].getWidth());
+                if(n1<MAX){
+                    if(n1%2==0||n%3==1){
+                     x[n1] = new Circle(n1*10,-n1*10-110,+n1*20+120);
+                }
+                else if(n%3==0){
+                    x[n1] = new Circle(n1*7,n1*10+150,-n1*20-150);
+                }
+                else x[n1] = new Circle(n1*9,-n1*10-100,n1*50);
+                }
+                else if(n1>=MAX){
+                    n1 = 0;
+                }
+                
+               
+                
             }
         }
-
+        
+         
     }
 
     public void delTriangle() {
         for (int i = 0; x[i] != null; i++) {
-            if (x[i].toString().equals("Triangle")) {
+            if (x[i] instanceof Triangle) {
                 x[i] = new Shape();
             }
 
         }
     }
 
+     public void delCircle() {
+        for (int i = 0; x[i] != null; i++) {
+            if (x[i] instanceof Circle) {
+                x[i] = new Shape();
+            }
+        }
+    }
     public void print() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < MAX; i++) {
             System.out.println(x[i].toString());
         }
     }
-
+    public void addBall(){
+        n1++;
+        if(n1>=MAX-1) n1 =1;
+       // x[n1] = new Circle(100,100,100);
+        System.out.println(n1);
+         timer.restart();
+        
+    }
     public static void main(String[] args) {
         Layer lay = new Layer();
         //lay.print();
