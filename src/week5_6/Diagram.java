@@ -20,6 +20,8 @@ import javax.swing.Timer;
 
 public class Diagram extends KeyAdapter{
     private Layer ball;
+    private Shape[] x;
+    
     public Diagram(){
         
         JFrame frame = new JFrame("Ball");
@@ -34,6 +36,11 @@ public class Diagram extends KeyAdapter{
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        x = new Shape[Layer.MAX];
+        x[0] = new Circle();
+        x[1] = new Rectangle();
+        x[2] = new Triangle();
+        x[3] = new Circle();
         
     }
     public void keyPressed(KeyEvent e){
@@ -42,16 +49,22 @@ public class Diagram extends KeyAdapter{
         }
     }
     public void delCircle(){
-        ball.delCircle();
+        for(int i=0;x[i]!=null;i++){
+            if(x[i] instanceof Circle){
+                x[i] = new Shape();
+            }
+        }
     }
     public void print(){
-        ball.print();
+       for(int i=0;x[i]!=null;i++){
+           System.out.println(x[i].toString());
+       }
     }
+    
     public static void main(String args[]) {
        // new Diagram();
         Diagram dia = new Diagram();
-       // dia.print();
-      //  dia.delCircle();
+        dia.delCircle();
         dia.print();
     } 
     
