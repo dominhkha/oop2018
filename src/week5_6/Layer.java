@@ -32,10 +32,14 @@ public class Layer extends JPanel implements ActionListener {
     private int n;
     private int n1;
     private Shape[] x;
+    private Triangle d;
+    int d1y=1;
+    int d1x =1;
     public static final int MAX =30;
     public Layer() {
         n=0;
         x = new Shape[MAX];
+        d = new Triangle(50,210,60,250,70,200);
         x[0] = new Circle(70, 1000, 500);
         x[1] = new Circle(100, 0, 0);
         x[2] = new Circle(50, 300, 500);
@@ -43,10 +47,11 @@ public class Layer extends JPanel implements ActionListener {
         x[4] = new Circle(200, 500, 100);
         x[5] = new Circle(150, 1000, 0);
         x[6] = new Circle(100, 220, 1000);
-        x[7] = new Triangle();
+        x[7] = new Triangle(20,20,40,40,60,60);
         x[8] = new Rectangle();
         x[9] = new Square();
         n1=9;
+        
         dx = new int[MAX];
         dy = new int[MAX];
         a = new int[MAX];
@@ -70,9 +75,35 @@ public class Layer extends JPanel implements ActionListener {
        
         super.paintComponent(g);
         g.setColor(Color.red);
+        int[] x1 = {d.getP1().getX(),d.getP2().getX(),d.getP3().getX()};
+        int[] y1 = {d.getP1().getY(),d.getP2().getY(),d.getP3().getY()};
+      //  for(int i=0;i<2;i++) System.out.println(x1[i]);
         
+        
+        if(x1[0]<=10||x1[1]<=10||x1[2]<=10){
+            d1x = 1;
+        }
+        else  if(x1[0]>=1000||x1[1]>=1000||x1[2]>=1000){
+            d1x =-2;
+        }
+        if(y1[0]<=10||y1[1]<=10||y1[2]<=10){
+            d1y = 1;
+        }
+        
+        else if(y1[0]>=1000||y1[1]>=1000||y1[2]>=1000){
+            d1y =-2;
+        }
+        for(int k =0;k<=2;k++){
+            
+            x1[k]=x1[k]+d1x;
+            y1[k]=y1[k]+d1y;
+        }
+        d.reset(x1[0],y1[0],x1[1],y1[1],x1[2],y1[2]);
+
+             // int[] x1 = {100,200,300};
+       // int[] y1 = {500,700,800};
+        g.fillPolygon(x1, y1, 3); 
         for (int i = 0; x[i]!=null; i++) {
-           // if(i==n1) x[n1] = new Circle(100,100,100);
             if (x[i] instanceof Circle) {
                 a[i] = x[i].getCenter().getX();
                 b[i] = x[i].getCenter().getY();
@@ -119,15 +150,14 @@ public class Layer extends JPanel implements ActionListener {
                     }
                 }
                 Point p;
-                if (a[i] == 0 && b[i] == r[i]) {
+                if(x[i] instanceof Circle){
+                    if (a[i] == 0 && b[i] == r[i]) {
                     p = new Point(x[i].getCenter().getX() + dx[i], x[i].getCenter().getY() - dy[i]);
                 } else {
                     p = new Point(x[i].getCenter().getX() + dx[i], x[i].getCenter().getY() + dy[i]);
                 }
 
                 x[i].setCenter(p);
-                
-                
                 g.fillOval(x[i].getCenter().getX(), x[i].getCenter().getY(), x[i].getWidth(), x[i].getWidth());
                 if(n1<MAX){
                     if(n1%2==0||n%3==1){
@@ -141,13 +171,14 @@ public class Layer extends JPanel implements ActionListener {
                 else if(n1>=MAX){
                     n1 = 0;
                 }
+                }
                 
                
                 
             }
+            
         }
-        
-         
+          
     }
 
     public void delTriangle() {
@@ -175,7 +206,7 @@ public class Layer extends JPanel implements ActionListener {
         n1++;
         if(n1>=MAX-1) n1 =1;
        // x[n1] = new Circle(100,100,100);
-        System.out.println(n1);
+      //  System.out.println(n1);
          timer.restart();
         
     }

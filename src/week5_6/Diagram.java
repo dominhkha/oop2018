@@ -47,6 +47,9 @@ public class Diagram extends KeyAdapter{
         if(e.getKeyCode()==KeyEvent.VK_SPACE){
           ball.addBall();
         }
+        else if(e.getKeyCode()==KeyEvent.VK_B){
+            ball.delCircle();
+        }
     }
     public void delCircle(){
         for(int i=0;x[i]!=null;i++){
