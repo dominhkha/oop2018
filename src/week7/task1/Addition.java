@@ -3,20 +3,18 @@ package week7.task1;
  * Viết class Additin - thực hiện phép cộng.
  * @author dominhkha
  */
-public class Addition extends BinaryExpression{
+public class Addition implements BinaryExpression{
    private Expression left;
     private Expression right;
     public Addition(Expression left, Expression right ){
         this.left  = left;
         this.right = right;
     }
-    @Override
     public Expression left() {
         return this.left;
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Expression right() {
         return this.right;
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

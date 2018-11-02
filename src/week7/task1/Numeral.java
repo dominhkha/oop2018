@@ -3,7 +3,7 @@ package week7.task1;
  * Viết class Numeral
  * @author dominhkha
  */
-public class Numeral extends Expression{
+public class Numeral implements Expression{
     private int value;
     public Numeral(int x){
         this.value = x;

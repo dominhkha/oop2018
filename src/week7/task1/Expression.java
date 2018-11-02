@@ -3,11 +3,8 @@ package week7.task1;
  * Viết class Expression
  * @author dominhkha
  */
-public  class Expression {
-    public String toString(){
-        return "";
-    }
-    public int evaluate(){
-        return 0;
-    }
+public interface Expression {
+    public abstract String toString();
+    public abstract int evaluate();
+        
 }

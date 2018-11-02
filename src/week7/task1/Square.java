@@ -3,7 +3,7 @@ package week7.task1;
  * Viết class Square
  * @author dominhkha
  */
-public class Square extends Expression{
+public class Square implements Expression{
     private Expression expression;
     public Square(Expression expression){
         this.expression = expression;
