@@ -23,7 +23,7 @@ public class Task1 {
                 if (content.contains("static")) {
                     t = 0;
                 }
-                if ((content.contains("public") || content.contains("private")) && !content.contains("static")) {
+                if ((content.contains("public") || content.contains("private")||content.contains("protected")) && !content.contains("static")) {
                     t = 1;
                 }
                 if (t == 0) {
@@ -44,7 +44,11 @@ public class Task1 {
         return result;
 
     }
-
+    public String findFunctionByName(String name){
+        String result = null;
+        
+        return result;
+    }
     public static void main(String[] args) throws IOException {
         Task1 t = new Task1();
         File file = new File("src/week9/Utils.java");
