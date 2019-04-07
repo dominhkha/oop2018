@@ -22,6 +22,7 @@ public class Link_list{
             element=input.nextInt();
             Linklisted.Node.insert(list,element);
         }
+        Linklisted.Node.insertInSomePosition(num+10,list, 99);
         Linklisted.Node.printList(list);
         
     }
@@ -58,5 +59,28 @@ class Linklisted {
         }
         System.out.println(".");
     }
+    public static void insertInSomePosition(int index, Linklisted list, int data){
+        Node currNode=list.head;
+        Node newNode=new Node(data);
+        if(list.head==null){
+            list.head=newNode;
+            return ;
+        }
+        else {
+            int i=0;
+            while(i<index){
+                if(currNode.next==null) {
+                    currNode.next=newNode;
+                    return ;
+                }
+                currNode=currNode.next;
+                i++;
+            }
+            Node nextNextNode =currNode.next;
+            currNode.next=newNode;
+            newNode.next=nextNextNode;
+            
+        }
+    }    
 }
 }
