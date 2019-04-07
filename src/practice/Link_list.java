@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Dell
  */
 public class Link_list{
-    public static void main(String args[]){
+    public static void main(String[] args){
         int num=0;
         Linklisted list = new Linklisted();
         Scanner input = new Scanner(System.in);
