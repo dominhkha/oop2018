@@ -1,5 +1,5 @@
 package practice;
-
+// dominhkhang
 public class myClass {
     public static void main(String[] args){
         int a[]={1,2,3,5,6,2,6,8,5,3,6,8,10};
