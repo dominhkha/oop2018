@@ -5,7 +5,7 @@
  */
 package week5_6;
 
-import static com.oracle.nio.BufferSecrets.instance;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;

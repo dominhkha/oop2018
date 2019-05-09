@@ -5,6 +5,7 @@
  */
 package practice;
 import java.util.Scanner;
+import java.sql.Connection;
 /**
  *
  * @author Dell
