@@ -23,7 +23,11 @@ public class Link_list{
             element=input.nextInt();
             Linklisted.Node.insert(list,element);
         }
-        Linklisted.Node.deleteInKPosition(3,list);
+        int i=0;
+        System.out.println("Choose the position need to delete:  ");
+        i=input.nextInt();
+    
+        Linklisted.Node.deleteInKPosition(i,list);
 
         Linklisted.Node.printList(list);
     }
