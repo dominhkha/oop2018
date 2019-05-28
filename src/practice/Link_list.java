@@ -23,9 +23,9 @@ public class Link_list{
             element=input.nextInt();
             Linklisted.Node.insert(list,element);
         }
-        Linklisted.Node.insertInSomePosition(num+10,list, 99);
+        Linklisted.Node.deleteInKPosition(3,list);
+
         Linklisted.Node.printList(list);
-        
     }
 }
 class Linklisted {
@@ -55,10 +55,10 @@ class Linklisted {
         Node currentNode=list.head;
         System.out.print("Link list is: ");
         while(currentNode!=null){
-            System.out.println(currentNode.data);
+            System.out.print(currentNode.data+" ");
             currentNode=currentNode.next;
         }
-        System.out.println(".");
+
     }
     public static void insertInSomePosition(int index, Linklisted list, int data){
         Node currNode=list.head;
@@ -82,6 +82,34 @@ class Linklisted {
             newNode.next=nextNextNode;
             
         }
-    }    
+    }
+    public static void  deleteInKPosition(int k, Linklisted list){
+        if(k==1){
+            list.head=list.head.next;
+            System.out.println("dominhkha");
+            return ;
+        }
+        else {
+            Node curr=list.head;
+            int i=1;
+            while(i<k-1&&curr.next!=null){
+                curr=curr.next;
+                i++;
+            }
+            if(curr.next==null&&i<k){
+                System.out.println("Index out of Array");
+            }
+            else if(curr.next==null){
+                curr=null;
+            }
+            else {
+                Node nextOfNext=curr.next.next;
+                curr.next=nextOfNext;
+                return ;
+            }
+
+        }
+
+    }
 }
 }
