@@ -23,7 +23,7 @@ public class Link_list{
             element=input.nextInt();
             Linklisted.Node.insert(list,element);
         }
-        Linklisted.Node.deleteInKPosition(3,list);
+        Linklisted.Node.deleteInKPosition(4,list);
 
         Linklisted.Node.printList(list);
     }
