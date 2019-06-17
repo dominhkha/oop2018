@@ -60,7 +60,7 @@ class Linklisted {
         }
 
     }
-    public static void insertInSomePosition(int index, Linklisted list, int data){
+    public static void insertInPosition(int index, Linklisted list, int data){
         Node currNode=list.head;
         Node newNode=new Node(data);
         if(list.head==null){
